@@ -7,12 +7,13 @@ import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.mapview.MapView
+import com.yandex.runtime.image.ImageProvider
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mapView: MapView
-    private val TARGET_LOCATION: Point = Point(59.945933, 30.320045)
+    private val TARGET_LOCATION: Point = Point(48.741979, 44.538103)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             Animation(Animation.Type.SMOOTH, 5f),
             null
         )
+        mapView.map.mapObjects.addPlacemark(TARGET_LOCATION, ImageProvider.fromResource(this, R.drawable.arrow))
 
     }
 
